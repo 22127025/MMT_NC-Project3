@@ -8,7 +8,7 @@ pipeline {
         }
         stage ('Build and push DockerHub') {
             steps {
-                withDockerRegistry(credentialsId: 'Docker', url: 'https://index.docker.io/v1/') {
+                withDockerRegistry(credentialsId: 'docker token', url: 'https://index.docker.io/v1/') {
                     bat 'docker build -t 22127025/test-dockerhub:latest .'
                     bat 'docker push 22127025/test-dockerhub:latest'
                 }
